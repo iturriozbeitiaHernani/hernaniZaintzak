@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Variables de entorno — NUNCA subir al repo
+backend/.env
+frontend/.env
+frontend/.env.local
+.env
+
+# Alembic — versiones generadas sí se suben, pero no datos de sesión
+# (las versiones van en alembic/versions/ y SÍ deben subirse)
+
+# Base de datos local
+*.db
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Node
+node_modules/
+frontend/node_modules/
+.npm/
+
+# Build frontend
+frontend/dist/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code local settings
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker — no subir datos persistentes
+postgres_data/
+
+# Coverage / tests
+.coverage
+htmlcov/
+.pytest_cache/
