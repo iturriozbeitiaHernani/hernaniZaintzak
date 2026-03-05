@@ -1,0 +1,310 @@
+{
+  "aitorardiaca@hernanilanh.eus": [
+    {
+      "dia_semana": 0,
+      "tramo_horario": 1,
+      "curso": "1MSS2",
+      "asignatura": "MONTAGE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 1,
+      "curso": "1MSS2",
+      "asignatura": "MONTAGE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 2,
+      "curso": "1MSS2",
+      "asignatura": "MONTAGE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 3,
+      "curso": "1MSS2",
+      "asignatura": "MONTAGE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 4,
+      "curso": "1MSS2",
+      "asignatura": "MONTAGE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 5,
+      "curso": "1MSS2",
+      "asignatura": "MONTAGE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 6,
+      "curso": "1MSS2",
+      "asignatura": "MONTAGE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    }
+  ],
+  "anesasiain@hernanilanh.eus": [
+    {
+      "dia_semana": 0,
+      "tramo_horario": 2,
+      "curso": "1MSS2",
+      "asignatura": "IPE1",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 0,
+      "tramo_horario": 3,
+      "curso": "1MSS2",
+      "asignatura": "IPE1",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 1,
+      "curso": "1MSS2",
+      "asignatura": "IPE1",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 2,
+      "curso": "1MSS2",
+      "asignatura": "IPE1",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    }
+  ],
+  "aitortellechea@hernanilanh.eus": [
+    {
+      "dia_semana": 0,
+      "tramo_horario": 4,
+      "curso": "1MSS2",
+      "asignatura": "ING PRO",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 4,
+      "curso": "1MSS2",
+      "asignatura": "ING PRO",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    }
+  ],
+  "aitoriturriozbeitiao@hernanilanh.eus": [
+    {
+      "dia_semana": 0,
+      "tramo_horario": 5,
+      "curso": "1MSS2",
+      "asignatura": "PBSE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 0,
+      "tramo_horario": 6,
+      "curso": "1MSS2",
+      "asignatura": "PBSE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 4,
+      "curso": "1MSS2",
+      "asignatura": "PBSE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 3,
+      "curso": "1MSS2",
+      "asignatura": "PBSE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 4,
+      "curso": "1MSS2",
+      "asignatura": "PBSE",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 5,
+      "curso": "1MSS2",
+      "asignatura": "DIGITALIZAZIOA",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 6,
+      "curso": "1MSS2",
+      "asignatura": "DIGITALIZAZIOA",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    }
+  ],
+  "jorgesanchezm@hernanilanh.eus": [
+    {
+      "dia_semana": 1,
+      "tramo_horario": 1,
+      "curso": "1MSS2",
+      "asignatura": "SEG",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 2,
+      "curso": "1MSS2",
+      "asignatura": "SEG",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 3,
+      "curso": "1MSS2",
+      "asignatura": "SEG",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 5,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 6,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 5,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 6,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 1,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 2,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 3,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    }
+  ],
+  "borjabravo@hernanilanh.eus": [
+    {
+      "dia_semana": 1,
+      "tramo_horario": 5,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 6,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 5,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 6,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 1,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 2,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 3,
+      "curso": "1MSS2",
+      "asignatura": "SAREAK",
+      "aula": "4-L03 INFOR.3",
+      "es_libre": false
+    }
+  ]
+}

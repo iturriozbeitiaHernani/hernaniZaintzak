@@ -1,0 +1,100 @@
+[
+  {
+    "nombre": "Aitor",
+    "apellidos": "Ardiaca Zarraga",
+    "email": "aitorardiaca@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "Montaje"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte MONTAGE en 1MSS2"
+  },
+  {
+    "nombre": "Aitor",
+    "apellidos": "Iturriozbeitia Olmos",
+    "email": "aitoriturriozbeitiao@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "PBSE",
+      "Digitalización"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte PBSE y Digitalización en 1MSS2"
+  },
+  {
+    "nombre": "Aitor",
+    "apellidos": "Tellechea Eceiza",
+    "email": "aitortellechea@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "Inglés Profesional"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte ING PRO en 1MSS2"
+  },
+  {
+    "nombre": "Ane",
+    "apellidos": "Sasiain Salaberria",
+    "email": "anesasiain@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "IPE"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte IPE1 en 1MSS2"
+  },
+  {
+    "nombre": "Borja",
+    "apellidos": "Bravo Urbieta",
+    "email": "borjabravo@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "Redes"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Tutor de 1MSS2. Imparte SAREAK junto a Jorge Sanchez"
+  },
+  {
+    "nombre": "Irati",
+    "apellidos": "Borda de Maria",
+    "email": "iratiborda@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Módulo pendiente de confirmar"
+  },
+  {
+    "nombre": "Jorge",
+    "apellidos": "Sanchez Mateos",
+    "email": "jorgesanchezm@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "Seguridad Informática",
+      "Redes"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte SEG y SAREAK en 1MSS2"
+  }
+]

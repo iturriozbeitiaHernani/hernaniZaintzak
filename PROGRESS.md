@@ -7,29 +7,55 @@
 ---
 
 ## Estado actual
-**Fase:** 1 — Backend COMPLETO y funcionando ✅
-**Última sesión:** 2026-02-27
-**Próximo paso:** Fase 2 — Frontend React + Vite + TypeScript
+**Fase:** 3 — Mejoras en curso
+**Última sesión:** 2026-03-04
+**Próximo paso:** Fase 3 continúa — reportes IA, historial por profesor
 
 ---
 
+## Última sesión (2026-03-04)
+- Notificaciones email reales al asignar/confirmar una sustitución
+- `notification_service.py` reescrito: smtplib + asyncio.to_thread + HTML email
+- SMTP settings en `config.py` + `.env` / `.env.example` (fallback a log si SMTP_HOST vacío)
+- `confirm_substitution` en `substitutions.py` ahora llama a `notificar_sustituto`
+- Firma de `notificar_sustituto(sub, db)` actualizada en todos los call sites
+
+## Última sesión (2026-03-03)
+- Navegación por días y semanas en vista Hoy y nueva vista Semana
+- Filtros y fecha compartidos entre páginas via Zustand (`scheduleFilterStore`)
+- Clic en día de la semana navega a vista Día con esa fecha
+- Botón + icono por tramo para registrar ausencias desde la vista Día
+- `NewAbsenceModal` como componente compartido con prefill de fecha y profesor
+- Fixes Docker: proxy Vite apunta a `backend:8000`, polling HMR activado
+- Carpeta `ejemplos/` con JSONs de datos y `cargar_datos.py` para carga masiva vía API
+
 ## Última sesión (2026-02-27)
+### Backend (sesión anterior)
 - Creada estructura completa de `backend/` con todos los ficheros
-- `requirements.txt`, `.env.example`, `docker-compose.yml`
-- `app/core/`: config, database (async), security (JWT+bcrypt), dependencies
-- `app/models/`: User, CenterConfig, Teacher, Schedule, Absence, Substitution
-- `app/schemas/`: auth, center_config, teacher, absence, substitution
-- `app/routers/`: auth, teachers, absences, substitutions, config, reports
-- `app/services/`: ai_service (Claude Opus 4.6 + adaptive thinking + fallback), substitution_service (flujo completo), notification_service (stub)
-- `app/main.py` + `seed.py`
-- `alembic/env.py` configurado para async + autogenerate
-- ✅ Verificado: todos los imports OK, 26 rutas registradas
-- ✅ Fix: DATABASE_URL cambiado de `localhost` a `postgres` (nombre servicio Docker)
-- ✅ Fix: `bcrypt==3.2.2` fijado en requirements.txt (incompatibilidad passlib 1.7.4 + bcrypt>=4)
-- ✅ Migración `alembic revision --autogenerate -m "initial"` + `alembic upgrade head` OK
+- ✅ Fix: DATABASE_URL cambiado de `localhost` a `postgres`
+- ✅ Fix: `bcrypt==3.2.2` fijado en requirements.txt
+- ✅ Migración Alembic + `alembic upgrade head` OK
 - ✅ `python seed.py` OK — admin@centro.es / admin123
 - ✅ Backend respondiendo en http://localhost:8000/api/health
-- ✅ Nombre del proyecto: hernaniZaintzak
+
+### Frontend (esta sesión)
+- ✅ Vite + React 18 + TypeScript en `frontend/`
+- ✅ Tailwind CSS v4 con `@tailwindcss/vite`
+- ✅ TanStack Query v5, Zustand, React Hook Form, Axios, Lucide
+- ✅ `src/api/` — client.ts (JWT interceptor), auth, substitutions, absences, teachers, config
+- ✅ `src/store/authStore.ts` — Zustand + persist
+- ✅ `src/components/PrivateRoute.tsx` — guarda rutas + rol admin
+- ✅ `src/components/Layout.tsx` — sidebar con navegación
+- ✅ `src/pages/LoginPage.tsx`
+- ✅ `src/pages/TodayPage.tsx` — sustituciones del día + confirmar/rechazar
+- ✅ `src/pages/AbsencesPage.tsx` — listado + modal nueva ausencia
+- ✅ `src/pages/SettingsPage.tsx` — configuración del centro
+- ✅ `src/App.tsx` — React Router v6 con rutas anidadas
+- ✅ `src/main.tsx` — QueryClientProvider + StrictMode
+- ✅ `frontend/Dockerfile` — Node 20 Alpine
+- ✅ `docker-compose.yml` — servicio frontend en puerto 3000
+- ✅ Frontend respondiendo en http://localhost:3000
+- ✅ Proxy /api → backend:8000 funcionando
 
 ---
 
@@ -94,43 +120,54 @@
 ### FASE 2 — Frontend MVP
 
 #### 2.1 Setup
-- [ ] `npx create vite@latest frontend -- --template react-ts`
-- [ ] Instalar: @tanstack/react-query, zustand, react-hook-form, axios, tailwindcss
-- [ ] Configurar proxy en `vite.config.ts` → backend :8000
-- [ ] `src/api/client.ts` — axios con base URL + interceptor JWT
+- [x] `npx create vite@latest frontend -- --template react-ts`
+- [x] Instalar: @tanstack/react-query, zustand, react-hook-form, axios, tailwindcss
+- [x] Configurar proxy en `vite.config.ts` → backend :8000
+- [x] `src/api/client.ts` — axios con base URL + interceptor JWT
 
 #### 2.2 Autenticación
-- [ ] Página Login (email + password)
-- [ ] Zustand store: `useAuthStore` (token, user, login, logout)
-- [ ] PrivateRoute — redirige a /login si no hay token
+- [x] Página Login (email + password)
+- [x] Zustand store: `useAuthStore` (token, user, login, logout)
+- [x] PrivateRoute — redirige a /login si no hay token
 
 #### 2.3 Vista principal — Hoy
-- [ ] Página `/today` — tabla de sustituciones del día
-  - [ ] Columnas: tramo, aula, curso, ausente, sustituto, estado
-  - [ ] Badge de estado (propuesta/confirmada/rechazada)
-  - [ ] Indicador "generada por IA" con icono
+- [x] Página `/today` — tabla de sustituciones del día
+  - [x] Columnas: tramo, aula, ausente, sustituto, estado
+  - [x] Badge de estado (propuesta/confirmada/rechazada)
+  - [x] Indicador "generada por IA" con icono
 
 #### 2.4 Gestión de ausencias
-- [ ] Página `/absences` — listado con filtro por fecha y profesor
-- [ ] Modal "Nueva ausencia" — profesor, fecha inicio/fin, motivo
-- [ ] Al guardar: spinner mientras IA procesa + resultado automático
+- [x] Página `/absences` — listado de ausencias
+- [x] Modal "Nueva ausencia" — profesor, fecha inicio/fin, motivo
+- [x] Al guardar: spinner mientras IA procesa + resultado automático
 
 #### 2.5 Panel de propuestas IA (solo si confirmacion_requerida=True)
-- [ ] En el detalle de ausencia: lista de propuestas ordenadas por puntuación
-- [ ] Mostrar para cada candidato: nombre, puntuación, razón principal, pros/contras
-- [ ] Botón Confirmar / Rechazar por tramo
-- [ ] Mostrar razonamiento completo de la IA (colapsable)
+- [x] En `/today`: botones Confirmar / Rechazar por fila (solo si confirmacion_requerida=True)
+- [x] Indicador Bot icon para propuestas IA
 
 #### 2.6 Configuración
-- [ ] Página `/settings` (solo admin)
-- [ ] Toggle `confirmacion_requerida`
-- [ ] Campo `max_sustituciones_diarias_por_profesor`
+- [x] Página `/settings` (solo admin)
+- [x] Toggle `confirmacion_requerida`
+- [x] Campo `max_sustituciones_diarias_por_profesor`
 
 ---
 
 ### FASE 3 — Mejoras (post-MVP)
-- [ ] Notificaciones por email real (SMTP)
-- [ ] Importación de horarios desde Excel/CSV
+
+#### Completado en sesión 2026-03-03
+- [x] Navegación por días en vista Hoy (← fecha →, picker nativo, botón "Hoy")
+- [x] Vista Semana nueva (`/week`) con grid Lun-Vie, navegación por semanas, picker
+- [x] Filtros ciclo/curso compartidos entre vistas Día y Semana (Zustand store)
+- [x] Fecha seleccionada compartida entre vistas (al pinchar día en Semana → va a Día)
+- [x] Encabezados de día en vista Semana clicables → navegan a vista Día de ese día
+- [x] Registro de ausencia desde vista Día: botón general en cabecera + icono por tramo
+- [x] `NewAbsenceModal` extraído como componente compartido (pre-rellena fecha y profesor)
+- [x] Fix proxy Vite: `localhost:8000` → `backend:8000` (Docker networking)
+- [x] Fix HMR Vite en Docker/Windows: `usePolling: true` en vite.config.ts
+- [x] Carpeta `ejemplos/` con formatos de datos y script de carga masiva
+
+#### Pendiente
+- [x] Notificaciones por email real (SMTP)
 - [ ] Página de reportes con análisis IA de patrones
 - [ ] Historial de sustituciones por profesor
 - [ ] Tests automáticos (pytest + React Testing Library)

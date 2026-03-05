@@ -1,0 +1,23 @@
+[
+  {
+    "_comentario": "Ausencia de un día por enfermedad — fechas iguales",
+    "teacher_email": "amaia.etxeberria@ikastola.eus",
+    "fecha_inicio": "2026-03-10",
+    "fecha_fin":    "2026-03-10",
+    "motivo": "Enfermedad"
+  },
+  {
+    "_comentario": "Ausencia de una semana completa por formación",
+    "teacher_email": "josu.larranaga@ikastola.eus",
+    "fecha_inicio": "2026-03-16",
+    "fecha_fin":    "2026-03-20",
+    "motivo": "Formación"
+  },
+  {
+    "_comentario": "Ausencia de dos días por asunto personal",
+    "teacher_email": "miren.aizpurua@ikastola.eus",
+    "fecha_inicio": "2026-03-12",
+    "fecha_fin":    "2026-03-13",
+    "motivo": "Asunto propio"
+  }
+]

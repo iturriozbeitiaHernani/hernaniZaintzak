@@ -1,0 +1,20 @@
+{
+  "_comentario": "Enviado a PUT /api/config. Solo se actualizan los campos incluidos.",
+
+  "nombre_centro": "Ikastola Hernani",
+
+  "confirmacion_requerida": false,
+  "_confirmacion_requerida": "false → la IA asigna y confirma sustituciones automáticamente sin revisión humana. true → genera propuestas que jefatura debe aprobar antes de notificar al sustituto.",
+
+  "max_sustituciones_diarias_por_profesor": 2,
+  "_max_sustituciones_diarias": "Máximo de sustituciones que puede hacer un mismo profesor en un día.",
+
+  "dias_anticipacion_notificacion": 1,
+  "_dias_anticipacion": "Con cuántos días de antelación se notifica al sustituto (1 = día anterior).",
+
+  "priorizar_misma_especialidad": true,
+  "_priorizar_especialidad": "La IA priorizará profesores con la misma especialidad que el ausente.",
+
+  "considerar_carga_semanal": true,
+  "_considerar_carga": "La IA tendrá en cuenta cuántas sustituciones ha hecho cada profesor esta semana."
+}

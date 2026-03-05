@@ -1,0 +1,286 @@
+{
+  "borjabravo@hernanilanh.eus": [
+    {
+      "dia_semana": 0,
+      "tramo_horario": 1,
+      "curso": "2MSS2",
+      "asignatura": "SSE",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 0,
+      "tramo_horario": 2,
+      "curso": "2MSS2",
+      "asignatura": "SSE",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 4,
+      "curso": "2MSS2",
+      "asignatura": "SSE",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 5,
+      "curso": "2MSS2",
+      "asignatura": "SSE",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 6,
+      "curso": "2MSS2",
+      "asignatura": "SSE",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    }
+  ],
+  "marialazcanoa@hernanilanh.eus": [
+    {
+      "dia_semana": 0,
+      "tramo_horario": 3,
+      "curso": "2MSS2",
+      "asignatura": "IPE2",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 0,
+      "tramo_horario": 4,
+      "curso": "2MSS2",
+      "asignatura": "IPE2",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 3,
+      "curso": "2MSS2",
+      "asignatura": "IPE2",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    }
+  ],
+  "gorkaintxausti@hernanilanh.eus": [
+    {
+      "dia_semana": 0,
+      "tramo_horario": 5,
+      "curso": "2MSS2",
+      "asignatura": "ZERBITZUAK",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 0,
+      "tramo_horario": 6,
+      "curso": "2MSS2",
+      "asignatura": "ZERBITZUAK",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 5,
+      "curso": "2MSS2",
+      "asignatura": "ZERBITZUAK",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 6,
+      "curso": "2MSS2",
+      "asignatura": "ZERBITZUAK",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 1,
+      "curso": "2MSS2",
+      "asignatura": "ZERBITZUAK",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 2,
+      "curso": "2MSS2",
+      "asignatura": "ZERBITZUAK",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 3,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 4,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 5,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 6,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    }
+  ],
+  "julenaramendi@hernanilanh.eus": [
+    {
+      "dia_semana": 1,
+      "tramo_horario": 1,
+      "curso": "2MSS2",
+      "asignatura": "BOLEGOTIKA",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 2,
+      "curso": "2MSS2",
+      "asignatura": "BOLEGOTIKA",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 1,
+      "tramo_horario": 4,
+      "curso": "2MSS2",
+      "asignatura": "BOLEGOTIKA",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 3,
+      "curso": "2MSS2",
+      "asignatura": "JASAN",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 4,
+      "curso": "2MSS2",
+      "asignatura": "JASAN",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 1,
+      "curso": "2MSS2",
+      "asignatura": "BOLEGOTIKA",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 2,
+      "curso": "2MSS2",
+      "asignatura": "BOLEGOTIKA",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 1,
+      "curso": "2MSS2",
+      "asignatura": "BOLEGOTIKA",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 4,
+      "tramo_horario": 2,
+      "curso": "2MSS2",
+      "asignatura": "BOLEGOTIKA",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    }
+  ],
+  "aitoriturriozbeitiao@hernanilanh.eus": [
+    {
+      "dia_semana": 1,
+      "tramo_horario": 3,
+      "curso": "2MSS2",
+      "asignatura": "WEB APLI",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 2,
+      "tramo_horario": 5,
+      "curso": "2MSS2",
+      "asignatura": "WEB APLI",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 3,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 4,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 5,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    },
+    {
+      "dia_semana": 3,
+      "tramo_horario": 6,
+      "curso": "2MSS2",
+      "asignatura": "AUTAZ III",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    }
+  ],
+  "mikellecuona@hernanilanh.eus": [
+    {
+      "dia_semana": 2,
+      "tramo_horario": 6,
+      "curso": "2MSS2",
+      "asignatura": "WEB APLI",
+      "aula": "4-L02 INFOR.2",
+      "es_libre": false
+    }
+  ]
+}

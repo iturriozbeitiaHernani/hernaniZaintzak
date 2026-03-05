@@ -1,0 +1,87 @@
+[
+  {
+    "nombre": "Aitor",
+    "apellidos": "Iturriozbeitia Olmos",
+    "email": "aitoriturriozbeitiao@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "Aplicaciones Web",
+      "Automatización"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte WEB APLI y AUTAZ en 2MSS2"
+  },
+  {
+    "nombre": "Borja",
+    "apellidos": "Bravo Urbieta",
+    "email": "borjabravo@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "SSE"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte SSE en 2MSS2"
+  },
+  {
+    "nombre": "Gorka",
+    "apellidos": "Intxausti Altuna",
+    "email": "gorkaintxausti@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "Redes",
+      "Automatización"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte ZERBITZUAK y AUTAZ en 2MSS2"
+  },
+  {
+    "nombre": "Julen",
+    "apellidos": "Aramendi Agirre",
+    "email": "julenaramendi@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "Ofimática",
+      "JASAN"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Tutor de 2MSS2. Imparte BOLEGOTIKA y JASAN"
+  },
+  {
+    "nombre": "Maria",
+    "apellidos": "Lazcano Agoues",
+    "email": "marialazcanoa@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [
+      "IPE"
+    ],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Imparte IPE2 en 2MSS2"
+  },
+  {
+    "nombre": "Mikel",
+    "apellidos": "Lecuona Romero",
+    "email": "mikellecuona@hernanilanh.eus",
+    "telefono": null,
+    "especialidades": [],
+    "niveles": [
+      "FP"
+    ],
+    "max_sustituciones_semana": 2,
+    "notas": "Módulo pendiente de confirmar (posiblemente FOL)"
+  }
+]

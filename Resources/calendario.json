@@ -1,0 +1,78 @@
+{
+  "inicio_curso": "2025-09-03",
+  "fin_curso": "2026-06-05",
+  "festivos": [
+    {
+      "fecha": "2025-09-01",
+      "descripcion": "Inicio de curso — preparación docente (sin alumnos)",
+      "confirmado": false
+    },
+    {
+      "fecha": "2025-09-02",
+      "descripcion": "Inicio de curso — preparación docente (sin alumnos)",
+      "confirmado": false
+    },
+    {
+      "fecha": "2025-09-11",
+      "descripcion": "Festivo local (Hernani/Gipuzkoa)",
+      "confirmado": false
+    },
+    {
+      "fecha": "2025-09-12",
+      "descripcion": "Festivo local (Hernani/Gipuzkoa)",
+      "confirmado": false
+    },
+    {
+      "fecha": "2025-10-13",
+      "descripcion": "Hispanidad (12/oct = domingo, traslado al lunes)",
+      "confirmado": true
+    },
+    {
+      "fecha": "2025-12-08",
+      "descripcion": "Inmaculada Concepción",
+      "confirmado": true
+    },
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "San Sebastián — festivo de Gipuzkoa",
+      "confirmado": true
+    },
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Inauteriak / Carnaval",
+      "confirmado": false
+    },
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Inauteriak / Carnaval",
+      "confirmado": false
+    },
+    {
+      "fecha": "2026-02-18",
+      "descripcion": "Inauteriak / Carnaval",
+      "confirmado": false
+    },
+    {
+      "fecha": "2026-05-01",
+      "descripcion": "Día del Trabajador",
+      "confirmado": true
+    }
+  ],
+  "vacaciones": [
+    {
+      "inicio": "2025-12-20",
+      "fin": "2026-01-07",
+      "descripcion": "Eguberri (Navidades)"
+    },
+    {
+      "inicio": "2026-03-27",
+      "fin": "2026-04-12",
+      "descripcion": "Aste Santua (Semana Santa)"
+    },
+    {
+      "inicio": "2026-06-06",
+      "fin": "2026-08-31",
+      "descripcion": "Uda (Verano)"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Amaia",
+    "apellidos": "Etxeberria Zubiaurre",
+    "email": "amaia.etxeberria@ikastola.eus",
+    "telefono": "688001001",
+    "especialidades": ["Matemáticas", "Física"],
+    "niveles": ["ESO", "Bachillerato"],
+    "max_sustituciones_semana": 3,
+    "notas": "Coordinadora de 2º de Bachillerato. Disponible tramos de tarde."
+  },
+  {
+    "nombre": "Josu",
+    "apellidos": "Larrañaga Mendiburu",
+    "email": "josu.larranaga@ikastola.eus",
+    "telefono": "688001002",
+    "especialidades": ["Lengua Castellana", "Literatura"],
+    "niveles": ["ESO", "Bachillerato"],
+    "max_sustituciones_semana": 2,
+    "notas": "Jefe del departamento de Humanidades."
+  },
+  {
+    "nombre": "Miren",
+    "apellidos": "Aizpurua Goikoetxea",
+    "email": "miren.aizpurua@ikastola.eus",
+    "telefono": "688001003",
+    "especialidades": ["Inglés"],
+    "niveles": ["Primaria", "ESO"],
+    "max_sustituciones_semana": 2,
+    "notas": "Certificación Cambridge C2. Puede reforzar cualquier clase de ESO."
+  },
+  {
+    "nombre": "Iñaki",
+    "apellidos": "Urrutia Beloki",
+    "email": "inaki.urrutia@ikastola.eus",
+    "telefono": "688001004",
+    "especialidades": ["Historia", "Geografía", "Filosofía"],
+    "niveles": ["ESO", "Bachillerato"],
+    "max_sustituciones_semana": 3,
+    "notas": "Muy polivalente, acepta cualquier guardia sin problema."
+  },
+  {
+    "nombre": "Leire",
+    "apellidos": "Sarasola Iturriaga",
+    "email": "leire.sarasola@ikastola.eus",
+    "telefono": "688001005",
+    "especialidades": ["Biología", "Química", "Ciencias Naturales"],
+    "niveles": ["ESO", "Bachillerato"],
+    "max_sustituciones_semana": 2,
+    "notas": "Tutora de 3ºESO-A. Prefiere no hacer guardia en la hora del recreo (tramo 4)."
+  },
+  {
+    "nombre": "Gorka",
+    "apellidos": "Arrizabalaga Txoperena",
+    "email": "gorka.arrizabalaga@ikastola.eus",
+    "telefono": "688001006",
+    "especialidades": ["Educación Física"],
+    "niveles": ["ESO", "Bachillerato"],
+    "max_sustituciones_semana": 4,
+    "notas": "Gran disponibilidad para guardias. Conoce todos los grupos y el patio."
+  },
+  {
+    "nombre": "Ane",
+    "apellidos": "Kortabarria Elola",
+    "email": "ane.kortabarria@ikastola.eus",
+    "telefono": "688001007",
+    "especialidades": ["Tecnología", "Informática"],
+    "niveles": ["ESO"],
+    "max_sustituciones_semana": 2,
+    "notas": "Responsable del aula de informática. Puede dar guardias en sala TIC."
+  },
+  {
+    "nombre": "Xabier",
+    "apellidos": "Galdos Irastorza",
+    "email": "xabier.galdos@ikastola.eus",
+    "telefono": "688001008",
+    "especialidades": ["Música", "Arte"],
+    "niveles": ["ESO"],
+    "max_sustituciones_semana": 3,
+    "notas": "Director del coro del centro. Flexible con horario de guardias."
+  }
+]
