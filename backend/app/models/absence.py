@@ -1,6 +1,7 @@
 import datetime
 
 from sqlalchemy import String, Boolean, ForeignKey, Text, Date
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
@@ -15,6 +16,8 @@ class Absence(Base):
     fecha_fin: Mapped[datetime.date] = mapped_column(Date)
     motivo: Mapped[str] = mapped_column(String(100))
     descripcion: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # Lista de tramos afectados (ej. [1, 2, 3]). None = todos los tramos del profesor ese día.
+    tramos_afectados: Mapped[list[int] | None] = mapped_column(JSONB, nullable=True)
     estado: Mapped[str] = mapped_column(
         String(30), default="pendiente"
     )  # pendiente | cubierta | parcialmente_cubierta

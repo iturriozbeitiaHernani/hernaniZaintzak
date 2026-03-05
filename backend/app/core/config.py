@@ -17,6 +17,14 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]
 
+    # SMTP — dejar vacíos para deshabilitar el envío real (fallback a log)
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = 587
+    SMTP_USER: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM: str = ""      # "hernaniZaintzak <noreply@ikastola.eus>"
+    SMTP_TLS: bool = True    # STARTTLS; False para SSL directo (puerto 465)
+
 
 @lru_cache
 def get_settings() -> Settings:

@@ -16,6 +16,134 @@ from app.services.notification_service import notificar_sustituto
 logger = logging.getLogger(__name__)
 
 
+# ── Preview (síncrono, sin guardar en DB) ────────────────────────────────────────
+
+async def preview_ausencia(
+    db: AsyncSession,
+    teacher_id: int,
+    fecha: datetime.date,
+    tramos_afectados: list[int] | None,
+) -> list[dict]:
+    """
+    Genera propuestas de sustitución para una ausencia sin guardar nada en DB.
+    Devuelve una lista de dicts con la estructura de TramoPreview.
+    """
+    teacher = await db.scalar(select(Teacher).where(Teacher.id == teacher_id))
+    if not teacher:
+        return []
+
+    config = await db.scalar(select(CenterConfig).where(CenterConfig.id == 1))
+
+    tramos = await _detectar_tramos(
+        db, teacher.id, fecha, fecha, tramos_afectados=tramos_afectados
+    )
+
+    result = []
+    for tramo in tramos:
+        disponibles = await _buscar_disponibles(db, tramo, config)
+
+        ausencia_info = {
+            "motivo": "preview",
+            "asignatura": tramo["asignatura"],
+            "curso": tramo["curso"],
+            "niveles_docente": teacher.niveles,
+        }
+        config_dict = {
+            "priorizar_misma_especialidad": config.priorizar_misma_especialidad if config else True,
+            "considerar_carga_semanal": config.considerar_carga_semanal if config else True,
+            "max_sustituciones_diarias": config.max_sustituciones_diarias_por_profesor if config else 2,
+        }
+
+        propuesta = await generar_propuestas_sustitucion(ausencia_info, tramo, disponibles, config_dict)
+
+        candidatos = [
+            {
+                "teacher_id": p.get("teacher_id", 0),
+                "nombre": p.get("nombre", ""),
+                "puntuacion": float(p.get("puntuacion", 5.0)),
+                "razon_principal": p.get("razon_principal", ""),
+                "pros": p.get("pros", []),
+                "contras": p.get("contras", []),
+                "confianza": float(p.get("confianza", 0.5)),
+            }
+            for p in propuesta.propuestas
+        ]
+
+        result.append({
+            "tramo_horario": tramo["tramo_horario"],
+            "asignatura": tramo["asignatura"],
+            "aula": tramo.get("aula"),
+            "propuestas": candidatos,
+            "advertencias": propuesta.advertencias,
+            "resumen": propuesta.resumen,
+        })
+
+    return result
+
+
+# ── Crear sustituciones desde elección manual ────────────────────────────────────
+
+async def crear_sustituciones_elegidas(absence_id: int, sustitutos: list[dict]) -> None:
+    """
+    Crea Substitution records directamente a partir de la elección del usuario,
+    sin llamar a la IA. Estado = 'confirmada'.
+    """
+    async with AsyncSessionLocal() as db:
+        try:
+            absence = await db.scalar(select(Absence).where(Absence.id == absence_id))
+            if not absence:
+                return
+
+            teacher = await db.scalar(select(Teacher).where(Teacher.id == absence.teacher_id))
+            if not teacher:
+                return
+
+            dia_semana = absence.fecha_inicio.weekday()
+            schedule_result = await db.execute(
+                select(Schedule).where(
+                    Schedule.teacher_id == teacher.id,
+                    Schedule.dia_semana == dia_semana,
+                )
+            )
+            schedule_by_tramo = {s.tramo_horario: s for s in schedule_result.scalars().all()}
+
+            for elegido in sustitutos:
+                tramo_horario = elegido["tramo_horario"]
+                schedule = schedule_by_tramo.get(tramo_horario)
+                if not schedule:
+                    continue
+
+                sub = Substitution(
+                    absence_id=absence_id,
+                    substitute_teacher_id=elegido["substitute_teacher_id"],
+                    fecha=absence.fecha_inicio,
+                    tramo_horario=tramo_horario,
+                    curso=schedule.curso or "",
+                    asignatura_original=schedule.asignatura or "",
+                    aula=schedule.aula,
+                    estado="confirmada",
+                    ai_propuesta=True,
+                    ai_razonamiento=elegido.get("razon_principal"),
+                    ai_alternativas=None,
+                    ai_confianza=elegido.get("ai_confianza"),
+                    confirmado_at=datetime.datetime.utcnow(),
+                )
+                db.add(sub)
+
+            absence.estado = "cubierta"
+            await db.commit()
+
+            # Notificar a cada sustituto
+            result = await db.execute(
+                select(Substitution).where(Substitution.absence_id == absence_id)
+            )
+            for sub in result.scalars().all():
+                await notificar_sustituto(sub, db)
+
+        except Exception as e:
+            logger.error("Error en crear_sustituciones_elegidas: %s", e, exc_info=True)
+
+
 async def procesar_ausencia(absence_id: int) -> None:
     """
     Punto de entrada principal. Se llama en background tras registrar una ausencia.
@@ -46,7 +174,10 @@ async def _procesar(db: AsyncSession, absence_id: int) -> None:
     confirmacion_requerida = config.confirmacion_requerida if config else False
 
     # 2. Detectar tramos de docencia afectados por la ausencia
-    tramos = await _detectar_tramos(db, teacher.id, absence.fecha_inicio, absence.fecha_fin)
+    tramos = await _detectar_tramos(
+        db, teacher.id, absence.fecha_inicio, absence.fecha_fin,
+        tramos_afectados=absence.tramos_afectados,
+    )
     if not tramos:
         logger.info("Ausencia %s: sin tramos de docencia afectados", absence_id)
         absence.estado = "cubierta"
@@ -109,7 +240,7 @@ async def _procesar(db: AsyncSession, absence_id: int) -> None:
         await db.flush()  # Para obtener sub.id antes de notificar
 
         if not confirmacion_requerida:
-            await notificar_sustituto(sub)
+            await notificar_sustituto(sub, db)
 
         sustituciones_creadas += 1
 
@@ -131,8 +262,10 @@ async def _detectar_tramos(
     teacher_id: int,
     fecha_inicio: datetime.date,
     fecha_fin: datetime.date,
+    tramos_afectados: list[int] | None = None,
 ) -> list[dict]:
-    """Devuelve los tramos de docencia (no libres) del profesor en el rango de fechas."""
+    """Devuelve los tramos de docencia (no libres) del profesor en el rango de fechas.
+    Si tramos_afectados no es None, solo se incluyen esos tramos horarios concretos."""
     tramos = []
     delta = (fecha_fin - fecha_inicio).days + 1
 
@@ -142,15 +275,15 @@ async def _detectar_tramos(
         if dia_semana > 4:  # Saltar fines de semana
             continue
 
-        result = await db.execute(
-            select(Schedule).where(
-                and_(
-                    Schedule.teacher_id == teacher_id,
-                    Schedule.dia_semana == dia_semana,
-                    Schedule.es_libre == False,
-                )
-            )
-        )
+        conditions = [
+            Schedule.teacher_id == teacher_id,
+            Schedule.dia_semana == dia_semana,
+            Schedule.es_libre == False,
+        ]
+        if tramos_afectados:
+            conditions.append(Schedule.tramo_horario.in_(tramos_afectados))
+
+        result = await db.execute(select(Schedule).where(and_(*conditions)))
         for s in result.scalars().all():
             tramos.append({
                 "fecha": fecha,

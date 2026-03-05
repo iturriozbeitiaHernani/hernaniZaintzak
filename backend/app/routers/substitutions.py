@@ -10,6 +10,7 @@ from app.models.center_config import CenterConfig
 from app.models.substitution import Substitution
 from app.models.user import User
 from app.schemas.substitution import SubstitutionOut, SubstitutionConfirm, SubstitutionReject
+from app.services.notification_service import notificar_sustituto
 
 router = APIRouter()
 
@@ -91,6 +92,8 @@ async def confirm_substitution(
 
     await db.commit()
     await db.refresh(sub)
+
+    await notificar_sustituto(sub, db)
     return sub
 
 

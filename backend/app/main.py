@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-from app.routers import auth, teachers, absences, substitutions, config, reports
+from app.routers import auth, teachers, absences, substitutions, config, reports, schedule
 
 app = FastAPI(
     title="hernaniZaintzak API",
@@ -24,6 +24,7 @@ app.include_router(absences.router, prefix="/api/absences", tags=["absences"])
 app.include_router(substitutions.router, prefix="/api/substitutions", tags=["substitutions"])
 app.include_router(config.router, prefix="/api/config", tags=["config"])
 app.include_router(reports.router, prefix="/api/reports", tags=["reports"])
+app.include_router(schedule.router, prefix="/api/schedule", tags=["schedule"])
 
 
 @app.get("/api/health", tags=["health"])

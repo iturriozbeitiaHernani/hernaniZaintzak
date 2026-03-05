@@ -1,3 +1,4 @@
+import datetime
 import json
 import logging
 from dataclasses import dataclass, field
@@ -7,6 +8,12 @@ import anthropic
 from app.core.config import settings
 
 logger = logging.getLogger(__name__)
+
+
+def _json_default(obj: object) -> str:
+    if isinstance(obj, (datetime.date, datetime.datetime)):
+        return obj.isoformat()
+    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
 
 client = anthropic.AsyncAnthropic(api_key=settings.ANTHROPIC_API_KEY)
 MODEL = "claude-opus-4-6"
@@ -61,10 +68,10 @@ async def generar_propuestas_sustitucion(
     Incluye fallback automático si Claude no está disponible.
     """
     prompt = (
-        f"Ausencia: {json.dumps(ausencia_info, ensure_ascii=False)}\n"
-        f"Tramo a cubrir: {json.dumps(tramo, ensure_ascii=False)}\n"
-        f"Profesores disponibles: {json.dumps(profesores_disponibles, ensure_ascii=False)}\n"
-        f"Configuración del centro: {json.dumps(config, ensure_ascii=False)}\n\n"
+        f"Ausencia: {json.dumps(ausencia_info, ensure_ascii=False, default=_json_default)}\n"
+        f"Tramo a cubrir: {json.dumps(tramo, ensure_ascii=False, default=_json_default)}\n"
+        f"Profesores disponibles: {json.dumps(profesores_disponibles, ensure_ascii=False, default=_json_default)}\n"
+        f"Configuración del centro: {json.dumps(config, ensure_ascii=False, default=_json_default)}\n\n"
         "Genera las propuestas de sustitución."
     )
 

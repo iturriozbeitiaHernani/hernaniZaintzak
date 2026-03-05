@@ -5,11 +5,54 @@ from sqlalchemy import select, and_
 from app.core.database import get_db
 from app.core.dependencies import get_current_user
 from app.models.absence import Absence
+from app.models.teacher import Teacher
 from app.models.user import User
-from app.schemas.absence import AbsenceCreate, AbsenceUpdate, AbsenceOut
-from app.services.substitution_service import procesar_ausencia
+from app.schemas.absence import (
+    AbsenceCreate,
+    AbsenceUpdate,
+    AbsenceOut,
+    AbsencePreviewRequest,
+    AbsencePreviewResponse,
+    TramoPreview,
+    CandidatoPropuesto,
+)
+from app.services.substitution_service import (
+    procesar_ausencia,
+    preview_ausencia,
+    crear_sustituciones_elegidas,
+)
 
 router = APIRouter()
+
+
+@router.post("/preview", response_model=AbsencePreviewResponse)
+async def preview_absence(
+    body: AbsencePreviewRequest,
+    db: AsyncSession = Depends(get_db),
+    _: User = Depends(get_current_user),
+):
+    """
+    Genera propuestas de sustitución de forma síncrona SIN guardar la ausencia.
+    Permite que jefatura vea y modifique el sustituto antes de confirmar.
+    """
+    teacher = await db.scalar(select(Teacher).where(Teacher.id == body.teacher_id))
+    if not teacher:
+        raise HTTPException(status_code=404, detail="Profesor no encontrado")
+
+    tramos_raw = await preview_ausencia(db, body.teacher_id, body.fecha, body.tramos_afectados)
+
+    tramos = [
+        TramoPreview(
+            tramo_horario=t["tramo_horario"],
+            asignatura=t["asignatura"],
+            aula=t.get("aula"),
+            propuestas=[CandidatoPropuesto(**c) for c in t["propuestas"]],
+            advertencias=t["advertencias"],
+            resumen=t["resumen"],
+        )
+        for t in tramos_raw
+    ]
+    return AbsencePreviewResponse(tramos=tramos)
 
 
 @router.get("", response_model=list[AbsenceOut])
@@ -44,13 +87,26 @@ async def create_absence(
             detail="Ya existe una ausencia que se solapa con ese periodo para este profesor",
         )
 
-    absence = Absence(**body.model_dump(), created_by=user.id)
+    absence = Absence(
+        teacher_id=body.teacher_id,
+        fecha_inicio=body.fecha_inicio,
+        fecha_fin=body.fecha_fin,
+        motivo=body.motivo,
+        descripcion=body.descripcion,
+        tramos_afectados=body.tramos_afectados,
+        created_by=user.id,
+    )
     db.add(absence)
     await db.commit()
     await db.refresh(absence)
 
-    # Procesar sustituciones en background (no bloquea la respuesta)
-    background_tasks.add_task(procesar_ausencia, absence.id)
+    if body.sustitutos_elegidos:
+        # El usuario ya eligió sustitutos desde el preview → crear directamente
+        sustitutos_dicts = [s.model_dump() for s in body.sustitutos_elegidos]
+        background_tasks.add_task(crear_sustituciones_elegidas, absence.id, sustitutos_dicts)
+    else:
+        # Flujo normal: la IA decide en background
+        background_tasks.add_task(procesar_ausencia, absence.id)
 
     return absence
 
